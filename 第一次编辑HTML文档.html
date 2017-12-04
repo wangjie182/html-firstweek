@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    
+        <style type="text/css">
+            /*标签选择器*/
+            header{
+                background-color:black;
+                color:white;
+                text-align:center;
+                padding:5px; 
+            }
+            nav{
+                line-height:30px;
+                background-color:#eeeeee;
+                height:300px;
+                width:100px;
+                float: left;
+                padding:5px; 
+             }
+             /*内部样式*/
+            section{
+                width: 350px;
+                float:left;
+                padding:5px;
+            }
+            footer{
+                background-color:black;
+                color:white;
+                clear:both;
+                text-align:center;
+                padding:5px;   
+            }
+            body {background-color:antiquewhite }
+            p {margin-left: 20px}
+            /*类选择器  class="cities"*/
+            .cities{
+                    background-color:rgba(182, 112, 112, 0.74);
+                    color:rgb(19, 27, 27);
+                    margin:20px; 
+                }
+            /*类选择器 span标签中 class="rgb"*/
+            span.rgb{color:rgb(124, 88, 47);}
+            span.red{color:red;}
+            /*:focus 选择器用于选取获得焦点的元素*/
+            /*选择获得焦点的输入字段，并设置其样式：*/
+            input:focus{
+                background-color:rgb(154, 197, 61); 
+            }
+            /*普通兄弟选择器*/
+            h1~p{
+                background: rgb(85, 61, 85); 
+            }
+        </style>
+</head>
+                
+
+<title>my title</title>
+<body  >  
+    <div>       
+<h2 style="background-color:antiquewhite;text-align:center">heading</h2>
+<p style="background-color:rgba(219, 184, 235, 0.856)">a para</br>gr</br>aph.</p>
+ <a href="http://www.w3school.com.cn"><q>this is a link</q></a><!--用<q></q>表示引用-->
+<p style="font-family:arial;color:rgb(41, 224, 50);font-size:20px">a paragraph</p>
+<blockquote cite="http://www.worldwildlife.org/who/index.html">a WHO</blockquote>
+    <p><abbr title="World Health Organization">WHO</abbr> build 1948 year.</p>
+    <p>CHINA</p>
+    <p>The <dfn title="World Health Organization">WHO</dfn> was founded in 1948.</p>
+ <address>
+        
+       by w.j<br/>Visit us at:<br/>Example.com<br/>hunan normal university<br/>    <!--用<br/>更规范-->
+        china
+        </address>
+<p >HTML kbd keyboard input:</p>
+</div>        
+<p><kbd>File | Open...</kbd></p>
+
+<a href="http://baidu.com/index.html">baidu</a>
+
+<p>Coding Example:</p>
+
+<code>
+    <pre>
+var person = {
+    firstName:"Bill",
+    lastName:"Gates",
+    age:50,
+    eyeColor:"blue"
+}
+</pre>       <!--用<pre></pre>使代码保留多余的空格和折行-->
+</code>
+
+<a name ="label">anchors</a>
+<a name="tips">basic information - baidu</a>
+
+
+
+
+<div>
+<p>please click the picture in different place</p>
+
+<img
+src="https://connorlin.github.io/images/avatar.jpg"
+align="left" width="200" height="200"
+border="0" usemap="#planetmap"
+alt="Planets" />        <!--alt为图像定义一串预备的可替换文本-->
+
+<map name="planetmap" id="planetmap">
+
+<area
+shape="circle"
+coords="0,0,50"
+href ="http://baidu.com/index.html"
+target ="_blank"
+alt="Venus" />
+
+<area
+shape="circle"
+coords="100,100,50"
+href ="http://sohu.com/index.html"
+target ="_blank"
+alt="Mercury" />
+
+<area
+shape="circle"
+coords="200,200,50"
+href ="http://weibo.com/index.html"
+target ="_blank"
+alt="Sun" />
+
+</map>
+</div>
+
+<br/><p><a href="http://weibo.com/index.html">
+    <img src="https://connorlin.github.io/images/avatar.jpg" ismap />
+    </a>
+    </p>
+
+
+<div>
+<table border="1"  cellspacing="10" width="50%"><!--cellspace定义单元格间距,width100%表示满屏显示-->
+    <caption>biaoge 1</caption>
+<tr>
+    <th align="left">name</th>
+    <th align="center" colspan="3">phone</th> <!--colspan设置当前单元格横跨的列数-->
+</tr>
+<tr>
+    <td align="left">bill</td>
+    <td align="center">303 23 222</td>
+    <td align="center"><b>494 343 345</b></td>
+    <td align="center">094 32 585</td>
+
+</tr>
+
+</table>
+</div>
+<p>
+    
+<div>
+        <table border="10"  cellpadding="10" background="https://connorlin.github.io/images/avatar.jpg"><!--用 border定义边框属性,cellpadding定义单元格内容与其边框之间的空白-->
+            <caption>biaoge 2</caption>       <!--标题定义-->
+                <tr>                        <!--每行用<tr>定义-->
+                <td>row 1, cell 1</td>      <!--每行内容用<td>定义，即tabledata-->
+                <td>row 1, cell 2</td>
+                </tr>
+                <tr>
+                <td>&nbsp;       </td>      <!--&nbsp;是一个空格占位符-->
+                <td>row 2, cell 2</td>
+                </tr>
+                <tr>                        <!--每行用<tr>定义-->
+                <td>row 1, cell 1</td>      <!--每行内容用<td>定义，即tabledata-->
+                <td>row 1, cell 2</td>
+                </tr>
+                <tr>
+                <td>&nbsp;       </td>      <!--&nbsp;是一个空格占位符-->
+                <td>row 2, cell 2</td>
+                </tr>
+                </table>
+
+
+
+</div>
+</p>
+
+
+<div>
+    <p>
+        <ul>
+            <caption><b>liebiao1</b></caption>
+            <ol start="1">
+                <li>apple</li>
+                <li>banana
+                    <ul>
+                        <li>big</li>
+                        <li>middle</li>
+                        <li>small</li>
+                    </ul>
+                </li>
+                <li>watermelon</li>
+            </ol>
+        </ul>
+    </p>
+</div>
+
+<div class="cities">
+        <h2>London</h2>
+        <p >London is the capital city of England.It is the most populous cit in the United Kingdom,</p>
+        <p >Standing on the River Thames,London has been a major settlementfor two millennia.</p>
+</div>
+
+<div class="cities">
+        <h2>Paris</h2>
+        <p>Paris is the captial and most populous city of France.</p>
+</div>
+
+
+<h1>My <span class="rgb">Important</span>&nbsp;<span class="red">Heading</span></h1>
+
+<header>
+    <h1>City Gallery</h1>
+</header>
+
+<nav>          
+    London<br/>
+    Paris<br/>
+    Tokyo<br/>
+</nav>
+<secion>
+    <h1>London</h1>
+    <p>London is the capital city of England.It is the most populous cit in the United Kingdom,</p>
+    <p>Standing on the River Thames,London has been a major settlementfor two millennia.</p>
+</secion>
+
+<footer>
+    Copyright w3schoolS.com
+</footer>
+<p>
+<form>
+    first:<br>
+    <input type="text" name="first" autofocus><!--定义用于文本输入的单行输入字段-->
+    <br>
+    last:<br>
+    <input type="text" name="last">
+</form>
+</p>
+<p>
+        <form>
+            <input type="radio" name="sex" value="male"> 男<!--定义单选按钮-->
+            <br>
+           <input type="radio" name="sex" value="female"> female
+        </form>
+</p>
+<p>
+        <form action="/demo/demo_form.asp"><!--定义用于向表单处理程序（form-handler）提交表单的按钮-->
+                First name:<br>
+                <input type="text" name="firstname" value="Mickey">
+                <br>
+                Last name:<br>
+                <input type="text" name="lastname" value="Mouse">
+                <br><br>
+                <input type="submit" value="Submit">
+                </form> 
+                
+</p>
+
+</body>
+</html>

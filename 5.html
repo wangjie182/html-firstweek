@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <style type="text/css">
+            input:focus
+            {
+                background-color:rgb(173, 207, 204); 
+            }
+            .nav
+            {
+                line-height:30px;
+                background-color:#eeeeee;
+                height:30px;
+                width:72px;
+                float: center; 
+            }
+            input:active
+            {
+                color:rgba(182, 112, 112, 0.74);  
+            }
+        </style>
+    </head>
+    <body>
+         <script type="text/javascript">
+            function disp_prompt()
+            {
+            var name=prompt("Please enter your name","")
+            var password=prompt("Please enter your password","")
+            if (name&&password!=null && name&&password!="")
+              {
+              alert("登陆成功!")
+              document.write("用户名："+name)
+              }
+            }
+         </script>
+          <input 
+                 class=nav
+                 type="button" 
+                 onclick="disp_prompt()"
+                 value="登录"
+                 autofocus
+         />
+
+            
+    </body>
+</html>

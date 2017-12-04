@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>网站标题</title>
+	<style>
+		ul { margin:0; padding:0; }
+		li { list-style:none; }
+		img { vertical-align:bottom; }
+		#box { width:1226px; height:460px; margin:20px auto; position:relative; }
+		#box ul.pic li { position:absolute; opacity:0; transition:0.8s; }
+		#box ul.pic li.opa { opacity:1; }
+		#box ul.active li { width:8px; height:8px; border-radius:50%; background:#397677; border:2px solid #9FDADC; float:left; margin-right:10px; cursor:pointer; transition:0.5s; }
+		#box ul.active li:hover,#box ul.active li.first  { background:#9FDADC; border:2px solid #397677; }
+		#box ul.active { position:absolute; bottom:30px; right:100px; }
+		#box ul.button li { position:absolute; width:40px; height:70px; text-align:center; line-height:70px; background:transparent; font-size:45px; opacity:0.2; color:#fff; transition:0.5s; border-radius:3px; cursor:pointer; top:195px; }
+		#box ul.button li:last-child { right:0; }
+		#box ul.button li:hover { background:#006666; opacity:0.7; }
+	</style>
+ </head>				
+ <body>
+	<div id="box">
+		<ul class="pic">
+		</ul>
+		<ul class="active">
+		</ul>
+		<ul class="button">
+			<li>&lt;</li>
+			<li>&gt;</li>
+		</ul>
+	</div>
+ </body>
+	<script>
+		var box = document.getElementById("box");
+		var aUl = box.getElementsByTagName("ul");
+		var aPic = aUl[0].getElementsByTagName("li");
+		var aDot = aUl[1].getElementsByTagName("li");
+		var aBtn = aUl[2].getElementsByTagName("li");
+		var num = 0;
+		var timer = null;
+		
+		var arrUrl = ["images/m1.jpg","images/m2.jpg","images/m3.jpg","images/m4.jpg","images/m5.jpg","images/m6.jpg","images/m2.jpg","images/m3.jpg","images/m4.jpg"];
+		
+		var str="";
+		var dot = "";
+		for(var i=0;i<arrUrl.length;i++){
+			str += "<li><a href='#'><img src='"+arrUrl[i]+"'></a></li>"
+			dot += "<li></li>";
+		}
+		aUl[0].innerHTML = str;
+		aUl[1].innerHTML = dot;
+
+
+		for(var i=0;i<aDot.length;i++){
+			aDot[i].index = i;
+			aDot[i].onclick = function (){
+				num = this.index;
+				show();
+			}
+		}
+
+		aBtn[1].onclick = get;
+		
+		function get(){
+			num++;
+			num %= aPic.length;
+			show();
+		}
+		aBtn[0].onclick = function (){
+			num--;
+			if( num < 0 ){ num = aPic.length-1; }
+			show();
+		}
+		function show(){
+			for(var k=0;k<aDot.length;k++){
+				aDot[k].className = "";
+				aPic[k].className = "";
+			}
+			aDot[num].className = "first";
+			aPic[num].className = "opa";
+		}
+		show();
+		function autoPlay(){
+			clearInterval( timer );
+			timer = setInterval(get,2000);
+		}
+		autoPlay();
+		box.onmouseover = function (){
+			clearInterval( timer );
+		}
+		box.onmouseout = autoPlay;
+
+	</script>
+</html>

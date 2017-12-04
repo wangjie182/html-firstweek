@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>网站标题</title>
+	<style>
+		#top { width:100%; 
+		height:0px; background:red; position:fixed;
+		 top:0; transition:0.5s; color:#fff; text-align:center;
+		 line-height:50px; }
+		#right { width:50px; background:#333; position:fixed;
+		 top:400px; left:20px; display:none; }
+		#right a { width:50px; 
+		height:50px; float:left; border-bottom:1px solid #fff; transition:0.5s; text-align:center; 
+		line-height:50px; color:#fff; text-decoration:none; }
+		#right a.red { background:red; }
+	</style>
+ </head>
+ <body style="height:20000px;">
+		<div id="top">导航条 导航条 导航条 导航条 导航条 导航条 导航条 导航条 导航条 导航条 
+		</div>
+		<h1>请滚动~</h1>
+		<div id="right">
+			<a href="#" class="red">服装</a>
+			<a href="#">家电</a>
+			<a href="#">手机</a>
+			<a href="#">图书</a>
+			<a href="#">汽车</a>
+			<a href="#">电脑</a>
+			<a href="#">包包</a>
+			<a href="#">返回</a>
+		</div>
+ </body>
+	<script>
+		var div = document.getElementsByTagName("div");
+		var aside = div[1].getElementsByTagName("a");
+		window.onscroll = function (){
+			var height = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			if(height>500){
+				div[0].style.height = "50px";	
+				div[1].style.display = "block";
+				for(var i=0;i<aside.length;i++){
+					if(height>500+i*1000){
+						for(var k=0;k<aside.length;k++){
+							aside[k].className = "";
+						}
+						aside[i].className = "red";
+					}
+				}
+			}else{
+				div[0].style.height = "0";	
+				div[1].style.display = "none";
+			}
+		}
+	</script>
+</html>

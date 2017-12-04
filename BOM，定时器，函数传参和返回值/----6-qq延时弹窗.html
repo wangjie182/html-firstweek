@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>网站标题</title>
+	<style>
+	#box { width:292px; height:698px; background:url("images/q1.png"); margin:0 auto; position:relative; }
+	#box>div { width:328px; height:149px; background:url("images/q2.png"); position:absolute; top:30px; left:-333px; transition:0.5s; display:none; opacity:0; }
+	</style>
+ </head>
+ <body>
+		<!-- 若是平级关系双方加上事件即可 -->
+	 <div id="box">
+		 <div></div>
+	 </div>
+	 
+	<script>
+		var d1 = document.getElementById("box");
+		var d2 = box.getElementsByTagName("div")[0];
+		var timer = null;
+		d1.onmouseover = show;
+		d1.onmouseout = hide;
+
+
+		function show(){
+			clearTimeout(timer);
+			d2.style.display = "block";
+			setTimeout(function (){
+				d2.style.opacity = 1;
+				d2.style.marginTop = "30px";
+			},100);
+		}
+
+		function hide(){
+			timer = setTimeout(function (){
+				d2.style.marginTop = 0;
+				d2.style.opacity = 0;
+				timer = setTimeout(function (){
+					d2.style.display = "none";
+				},500);
+			},1500);
+		}
+	</script>
+ </body>
+</html>

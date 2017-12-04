@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>网站标题</title>
+	<style>
+		li{margin-bottom:10px;}
+	</style>
+	<script>
+	window.onload = function (){
+		var oUl = document.getElementById("list");
+		var aLi = oUl.getElementsByTagName("li");
+		var aSpan = oUl.getElementsByTagName("span");
+		var aI = oUl.getElementsByTagName("i");
+		var aB = oUl.getElementsByTagName("b");
+		var oP = document.getElementById("total");
+		var aPspan = oP.getElementsByTagName("span");
+		for(var i=0;i<aLi.length;i++){
+			get(aLi[i]);//循环全部执行
+		}
+		function get(oLi){//单个计算的函数
+			var aBtn = oLi.getElementsByTagName("input");
+			var oSpan = oLi.getElementsByTagName("span")[0];
+			var oB = oLi.getElementsByTagName("b")[0];
+			var oI = oLi.getElementsByTagName("i")[0];
+			var a = 0;	
+
+			aBtn[1].onclick = function (){
+				a++;
+				oSpan.innerHTML = a;
+				oB.innerHTML = a*oI.innerHTML;
+				count();
+			}
+			aBtn[0].onclick = function (){
+				a--;
+				a<0 && (a=0);
+				oSpan.innerHTML = a;
+				oB.innerHTML = a*oI.innerHTML;
+				count();
+			}
+		}
+
+		function count(){
+			var b = 0;
+			var c = 0;
+			var d = 0;
+			for(var j=0;j<aSpan.length;j++){
+				b += parseInt(aSpan[j].innerHTML);
+				c += parseFloat(aB[j].innerHTML);
+				if(aSpan[j].innerHTML>0){
+					if(aI[j].innerHTML>d){
+						d = parseFloat(aI[j].innerHTML);
+					}
+				}
+			}
+			aPspan[0].innerHTML = b;
+			aPspan[2].innerHTML = c;
+			aPspan[1].innerHTML = d;
+		}
+
+	}
+	</script>
+ </head>
+ <body>
+	<ul id="list">
+		<li>
+			<input type="button" value="-">
+			<span> 0 </span>
+			<input type="button" value="+">
+			单价: <i>10</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>7.5</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>15</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>20</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>50</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>1</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>5</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>1.5</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>8</i> 元	
+			小计：<b>0</b> 元
+		</li>
+		<li>
+			<input type="button" value="-">
+			<span>0</span>
+			<input type="button" value="+">
+			单价: <i>100</i> 元	
+			小计：<b>0</b> 元
+		</li>
+	</ul>
+	<p id="total">商品合计一共：<span>0</span> 件，其中最贵的商品单价是：<span>0</span> 元<br>总共花费了：<span>0</span> 元</p>
+	<script>
+
+	</script>
+ </body>
+</html>

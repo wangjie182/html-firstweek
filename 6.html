@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <style type="text/css">
+             .heibai
+             {
+                background-color:black;
+                color:white;
+                text-align:center;
+                padding:5px; 
+            }
+            div
+            {
+               color:rgb(228, 30, 129); 
+                padding:5px; 
+            }
+        </style>
+    </head>
+    <body background="1.jpg">
+        <script src="1.js"></script>           
+        <!--对事件作出反应-->
+        <div>
+            <button type="button" onclick="alert('Welcome!')">点击这里弹框出现'Welcome!'</button>
+        </div>
+        <hr> 
+        <div>
+            <p id="demo" class="heibai" >Content will be changed!</p> 
+            <button type="button" onclick="myfunction()">点击这里改变</button>
+        </div>
+        
+        <hr>
+        <div>
+            <img id="myimage" onclick="changeimage()" src="33.jpg">
+            <p>点击图片可更换一次</p>
+        </div>
+        
+        <hr>
+        <div> 
+            <p >请输入数字：</p>
+            <input id="demo2" type="text">
+            <button type="button" onclick="myfunction2()">确认</button>       
+        </div>
+        
+        <hr>
+    </body>
+</html>

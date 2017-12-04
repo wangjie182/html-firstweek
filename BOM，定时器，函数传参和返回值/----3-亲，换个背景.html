@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>网站标题</title>
+	<style>
+	</style>
+ </head>
+ <body>
+	<input type="button" value="亲,换个背景">
+	<input type="button" value="停">
+	<script>
+		var aBtn = document.getElementsByTagName("input");
+		var arr = ["z1.jpg","z2.jpg","z3.jpg","z4.jpg"];
+		var oBody = document.body;
+		var i = 0;
+		var timer = null;
+		aBtn[0].onclick = function (){
+			clearInterval(timer);
+			timer = setInterval(get,1000);
+		};
+		aBtn[1].onclick = function (){
+			clearInterval(timer);
+		}
+		function get(){
+			oBody.style.background = "url(images/"+arr[i]+") repeat";
+			i++;
+			i%=arr.length;
+		}
+	</script>
+ </body>
+</html>
