@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网站标题</title>
+		<style>
+			ul{margin:0;padding:0;}
+			li{list-style:none;}
+			body{background:#333;}
+			p,ul,li{margin:0;padding:0;list-style:none;}
+			.box{width:400px;height:500px;margin-right:100px;position:relative;background:url("images/z.jpg") no-repeat center #fff; float:left; }
+			.box img{width:400px;height:500px;border:0;}
+			.box ul{width:40px;position:absolute;top:0px;right:-50px;}
+			.box ul li{width:40px;height:40px;background:#666;margin-bottom:4px;}
+			.box .active{background:#fc3;}
+			.box span,.box p{height:30px;background:#000;color:#fff;
+			text-align:center;line-height:30px;position:absolute;width:100%;}
+			.box span{top:0px;}
+			.box p{bottom:0px;margin:0;}
+		</style>
+		<script>
+			window.onload = function (){ // 加载完之后执行里面内容
+				function fn(id,arrUrl,arrText){
+					var box = document.getElementById(id);
+					var oImg = box.getElementsByTagName("img")[0];
+					var oSpan = box.getElementsByTagName("span")[0];
+					var oP = box.getElementsByTagName("p")[0];
+					var oUl = box.getElementsByTagName("ul")[0];
+					var aLi = oUl.getElementsByTagName("li");
+
+					var num = 0;
+					var timer = null;
+					
+
+					for(var i=0;i<arrUrl.length;i++){
+						oUl.innerHTML += "<li></li>";
+					}
+					function get(){
+						num %= arrUrl.length;
+						oImg.src = arrUrl[num];
+						oSpan.innerHTML = 1+num+"/"+arrUrl.length;
+						oP.innerHTML = arrText[num];
+						for(var i=0;i<arrUrl.length;i++){
+							aLi[i].className = "";
+						}
+						aLi[num].className = "active";
+						num++;
+					}
+					get();
+					for(var i=0;i<arrUrl.length;i++){
+						aLi[i].index = i;
+						aLi[i].onclick = function (){	
+							num = this.index;//重点，改变num值
+							get();
+						}	
+					}
+				}
+				fn("box1",["images/1.png","images/2.png","images/3.png","images/4.png","images/1.png"],["女神","女汉子","男神","男屌丝","女神"]);//实参
+				fn("box2",["images/1.png","images/2.png","images/3.png","images/4.png","images/1.png","images/1.png","images/2.png","images/3.png","images/4.png","images/1.png"],["女神","女汉子","男神","男屌丝","女神","女神","女汉子","男神","男屌丝","女神"]);
+				fn("box3",["images/1.png","images/2.png","images/3.png"],["女神","女汉子","男神"]);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1" class="box">
+			<img>
+			<span>数量正在加载中..</span>
+			<p>文字正在加载中..</p>
+			<ul></ul>
+		</div>
+		<div id="box2" class="box">
+			<img>
+			<span>数量正在加载中..</span>
+			<p>文字正在加载中..</p>
+			<ul></ul>
+		</div>
+		<div id="box3" class="box">
+			<img>
+			<span>数量正在加载中..</span>
+			<p>文字正在加载中..</p>
+			<ul></ul>
+		</div>
+	</body>
+</html>

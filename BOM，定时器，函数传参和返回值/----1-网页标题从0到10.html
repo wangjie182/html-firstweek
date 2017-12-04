@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>网站标题</title>
+	<style></style>
+ </head>
+ <body>
+	<script>
+		var i = 0;
+		function get(){
+			document.title = i;
+			i++;
+			if(i>10){
+				clearInterval(timer);
+			}
+		}
+		var timer = setInterval(get,300);
+	</script>
+ </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网站标题</title>
+		<style>
+			ul{margin:0;padding:0;}
+			li{list-style:none;}
+			body{background:#333;}
+			p,ul,li{margin:0;padding:0;list-style:none;}
+			.get{width:350px;height:500px;float:left;margin-right:60px; position:relative;background:url("images/z.jpg") no-repeat center #fff;}
+			.get img{width:350px;height:500px;border:0;}
+			.get ul{width:40px;position:absolute;top:0px;right:-50px;}
+			.get ul li{width:40px;height:40px;background:#666;margin-bottom:4px;}
+			.get .active{background:#fc3;}
+			.get span,.get p{height:30px;background:#000;color:#fff;
+			text-align:center;line-height:30px;position:absolute;width:100%;}
+			.get span{top:0px;}
+			.get p{bottom:0px;margin:0;}
+		</style>
+		<script>
+			window.onload = function (){
+				get("box1",["images/1.png","images/2.png","images/3.png","images/4.png","images/1.png"],["女神","女汉子","男神","男屌丝","女神"]);
+				get("box2",["images/1.png","images/2.png","images/3.png","images/4.png","images/1.png","images/2.png","images/3.png","images/4.png","images/1.png","images/2.png"],["女神","女汉子","男神","男屌丝","女神","女汉子","男神","男屌丝","女神","女汉子"]);
+				get("box3",["images/1.png","images/2.png","images/3.png"],["女神","女汉子","男神"]);
+				function get(id,arrUrl,arrText){
+					var box = document.getElementById(id,arrUrl,arrText);
+					var oImg = box.getElementsByTagName("img")[0];
+					var oSpan = box.getElementsByTagName("span")[0];
+					var oP = box.getElementsByTagName("p")[0];
+					var oUl = box.getElementsByTagName("ul")[0];
+					var aLi = oUl.getElementsByTagName("li");
+
+					
+					var num = 0;
+
+					for(var i=0;i<arrUrl.length;i++){
+						oUl.innerHTML += "<li></li>";
+					}
+					var oldLi = aLi[num];
+
+					function fun(){
+						oImg.src = arrUrl[num];
+						oSpan.innerHTML = 1+num+"/"+arrUrl.length;
+						oP.innerHTML = arrText[num];
+						aLi[num].className = "active";
+					}
+					fun();
+					for(var i=0;i<arrUrl.length;i++){
+						aLi[i].index = i;
+						aLi[i].onclick = function (){
+							num = this.index;
+							oldLi.className = "";
+							oldLi = this;
+							fun();
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1" class="get">
+			<img src="">
+			<span>数量正在加载中..</span>
+			<p>文字正在加载中..</p>
+			<ul></ul>
+		</div>
+		<div id="box2" class="get">
+			<img src="">
+			<span>数量正在加载中..</span>
+			<p>文字正在加载中..</p>
+			<ul></ul>
+		</div>
+		<div id="box3" class="get">
+			<img src="">
+			<span>数量正在加载中..</span>
+			<p>文字正在加载中..</p>
+			<ul></ul>
+		</div>
+	</body>
+</html>
